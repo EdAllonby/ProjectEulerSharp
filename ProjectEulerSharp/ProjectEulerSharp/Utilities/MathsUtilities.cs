@@ -67,7 +67,7 @@ namespace ProjectEulerSharp.Utilities
             return true;
         }
 
-        public static IEnumerable<BigInteger> FastFibonacciGenerator()
+        public static IEnumerable<BigInteger> FibonacciGeneratorFast()
         {
             BigInteger last = 1;
             BigInteger current = 1;
@@ -145,15 +145,11 @@ namespace ProjectEulerSharp.Utilities
 
         private static IEnumerable<int> SieveOfEratosthenes(int upperBound)
         {
-            const double LegendresConstant = 1.08366;
-
-            var values = new List<int>((int)(upperBound / (Math.Log(upperBound) - LegendresConstant)));
-
             double upperBoundSquareRoot = Math.Sqrt(upperBound);
 
             var eliminated = new BitArray(upperBound + 1);
 
-            values.Add(2);
+            yield return 2;
 
             for (int possiblePrime = 3; possiblePrime <= upperBound; possiblePrime += 2)
             {
@@ -167,11 +163,9 @@ namespace ProjectEulerSharp.Utilities
                         }
                     }
 
-                    values.Add(possiblePrime);
+                    yield return possiblePrime;
                 }
             }
-
-            return values;
         }
 
         private static int FibonacciFinder(int upperBound)

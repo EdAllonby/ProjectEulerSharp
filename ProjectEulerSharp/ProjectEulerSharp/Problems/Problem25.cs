@@ -8,7 +8,7 @@ namespace ProjectEulerSharp.Problems
     {
         public string Solve()
         {
-            int index = 1 + MathsUtilities.FastFibonacciGenerator().TakeWhile(fibonacciNumber => MathsUtilities.DigitsInNumber(fibonacciNumber) < 1000).Count();
+            int index = 1 + MathsUtilities.FibonacciGeneratorFast().TakeWhile(fibonacciNumber => MathsUtilities.DigitsInNumber(fibonacciNumber) < 1000).Count();
 
             return index.ToString();
         }

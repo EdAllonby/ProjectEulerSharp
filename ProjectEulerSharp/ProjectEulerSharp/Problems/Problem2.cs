@@ -12,9 +12,10 @@ namespace ProjectEulerSharp.Problems
     {
         public string Solve()
         {
-            IEnumerable<int> fibonacciNumbers = MathsUtilities.FibonacciGeneratorFromMaxNumber(3999999);
-
-            int sum = fibonacciNumbers.Where(fibonacciNumber => fibonacciNumber % 2 == 0).Sum();
+            var sum = MathsUtilities.FibonacciGeneratorFast()
+                .TakeWhile(x => x < 3999999)
+                .Where(fibonacciNumber => fibonacciNumber % 2 == 0)
+                .Sum(x=>(int)x);
 
             return sum.ToString();
         }

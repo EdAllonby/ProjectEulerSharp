@@ -14,15 +14,18 @@ namespace ProjectEulerSharp.Problems
         {
             const long Number = 600851475143;
 
-            int numberSquareRoot = (int)Math.Sqrt(Number) + 1;
+            int numberSquareRoot = (int) Math.Sqrt(Number) + 1;
 
-            var primes = MathsUtilities.GetAllPrimeNumbers(numberSquareRoot);
-
-            IEnumerable<int> factors = primes.Where(prime => Number % prime == 0);
-
-            int answer = factors.Max();
+            int answer = MathsUtilities.GetAllPrimeNumbers(numberSquareRoot)
+                .Where(IsPrimeFactor(Number))
+                .Max();
             
             return answer.ToString();
+        }
+
+        private static Func<int, bool> IsPrimeFactor(long number)
+        {
+            return prime => number % prime == 0;
         }
     }
 }
