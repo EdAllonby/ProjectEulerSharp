@@ -1,9 +1,25 @@
-﻿namespace ProjectEulerSharp
+﻿using System;
+using System.Diagnostics;
+using ProjectEulerSharp.Problems;
+
+namespace ProjectEulerSharp
 {
-    class Program
+    internal static class Program
     {
-        static void Main()
+        private static void Main()
         {
+            var executionTime = new Stopwatch();
+
+            executionTime.Start();
+            var selection = new Problem24();
+
+            string answer = selection.Solve();
+            Console.WriteLine(answer);
+
+            executionTime.Stop();
+
+            Console.WriteLine("Time elapsed: {0}", executionTime.Elapsed);
+            Console.ReadKey();
         }
     }
 }
