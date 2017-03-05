@@ -3,7 +3,7 @@
     /// <summary>
     /// All project euler problems have a text box for the solution.
     /// </summary>
-    interface IProjectEulerSolution
+    internal interface IProjectEulerSolution
     {
         /// <summary>
         /// Solve the problem.

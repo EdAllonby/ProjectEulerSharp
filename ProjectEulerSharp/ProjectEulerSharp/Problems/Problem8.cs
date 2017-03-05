@@ -10,7 +10,7 @@ namespace ProjectEulerSharp.Problems
         {
             char[] numberList = Resources.Problem8Numbers.ToArray();
 
-            List<int> numbers = new List<int>();
+            var numbers = new List<int>();
 
             foreach (char number in numberList)
             {
@@ -21,15 +21,15 @@ namespace ProjectEulerSharp.Problems
                 }
             }
 
-            int maximumProduct = 0;
+            var maximumProduct = 0;
 
             const int Width = 13;
 
-            for (int i = 0; i < 1000 - Width; i++)
+            for (var i = 0; i < 1000 - Width; i++)
             {
                 List<int> subList = numbers.GetRange(i, Width);
 
-                int product = subList.TakeWhile(num => num != 0).Aggregate(1, (current, num) => current*num);
+                int product = subList.TakeWhile(num => num != 0).Aggregate(1, (current, num) => current * num);
 
                 if (product > maximumProduct)
                 {

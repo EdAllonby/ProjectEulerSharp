@@ -11,7 +11,7 @@ namespace ProjectEulerSharp
             var executionTime = new Stopwatch();
 
             executionTime.Start();
-            var selection = new Problem3();
+            var selection = new Problem27();
 
             string answer = selection.Solve();
             Console.WriteLine(answer);

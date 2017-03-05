@@ -44,11 +44,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IProjectEulerSolution.cs" />
+    <Compile Include="Problems\Problem27.cs" />
+    <Compile Include="Utilities\Division.cs" />
     <Compile Include="Problems\Problem19.cs" />
     <Compile Include="Problems\Problem22.cs" />
+    <Compile Include="Problems\Problem26.cs" />
     <Compile Include="Problems\Problem23.cs" />
     <Compile Include="Problems\Problem24.cs" />
     <Compile Include="Problems\Problem25.cs" />
+    <Compile Include="Utilities\DivisionUtilities.cs" />
+    <Compile Include="Utilities\EnumerableExtensions.cs" />
     <Compile Include="Utilities\NumberToWordConverter.cs" />
     <Compile Include="Problems\Problem1.cs" />
     <Compile Include="Problems\Problem10.cs" />

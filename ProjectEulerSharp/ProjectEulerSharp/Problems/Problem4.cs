@@ -1,7 +1,4 @@
-﻿// A palindromic number reads the same both ways. The largest palindrome made from the product of two 2-digit numbers is 9009 = 91 × 99.
-// Find the largest palindrome made from the product of two 3-digit numbers.
-
-using ProjectEulerSharp.Utilities;
+﻿using ProjectEulerSharp.Utilities;
 
 namespace ProjectEulerSharp.Problems
 {
@@ -9,11 +6,11 @@ namespace ProjectEulerSharp.Problems
     {
         public string Solve()
         {
-            int highestPalindrome = 0;
+            var highestPalindrome = 0;
 
-            for (int first = 100; first < 999; first++)
+            for (var first = 100; first < 999; first++)
             {
-                for (int second = 100; second < 999; second++)
+                for (var second = 100; second < 999; second++)
                 {
                     int possiblePalindrome = first * second;
 

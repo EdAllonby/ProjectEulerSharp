@@ -12,7 +12,7 @@ namespace ProjectEulerSharp.Utilities
         /// An optimised implementation for finding primes.
         /// </summary>
         /// <param name="upperBound">The maximum prime to find.</param>
-        /// <returns>A collection of primes up to the <see cref="upperBound"/> defined.</returns>
+        /// <returns>A collection of primes up to the <see cref="upperBound" /> defined.</returns>
         public static IEnumerable<int> GetAllPrimeNumbers(int upperBound)
         {
             return SieveOfEratosthenes(upperBound);
@@ -54,12 +54,12 @@ namespace ProjectEulerSharp.Utilities
 
         public static bool IsAPrimeNumber(int number)
         {
-            int boundary = (int)Math.Floor(Math.Sqrt(number));
+            var boundary = (int) Math.Floor(Math.Sqrt(number));
 
             if (number == 1) return false;
             if (number == 2) return true;
 
-            for (int i = 2; i <= boundary; ++i)
+            for (var i = 2; i <= boundary; ++i)
             {
                 if (number % i == 0) return false;
             }
@@ -93,13 +93,16 @@ namespace ProjectEulerSharp.Utilities
         /// <summary>
         /// Creates fibonacci numbers up to the specified upper bound. Uses recursive implementation.
         /// </summary>
-        /// <param name="maxFibonacciNumber">Specifies the last number to look for in the fibonacci sequence. If Not a fibonacci number, then use the last one found.</param>
+        /// <param name="maxFibonacciNumber">
+        /// Specifies the last number to look for in the fibonacci sequence. If Not a fibonacci
+        /// number, then use the last one found.
+        /// </param>
         /// <returns>The fubonacci numbers found.</returns>
         public static IEnumerable<int> FibonacciGeneratorFromMaxNumber(int maxFibonacciNumber)
         {
             var numbers = new List<int>();
 
-            for (int i = 0; ; i++)
+            for (var i = 0;; i++)
             {
                 int currentFibonacciNumber = FibonacciFinder(i);
 
@@ -116,16 +119,16 @@ namespace ProjectEulerSharp.Utilities
 
         public static List<int> FactorFinder(int number)
         {
-            List<int> factors = new List<int>();
-            int max = (int) Math.Sqrt(number);
-            for (int factor = 1; factor <= max; ++factor)
+            var factors = new List<int>();
+            var max = (int) Math.Sqrt(number);
+            for (var factor = 1; factor <= max; ++factor)
             {
-                if (number%factor == 0)
+                if (number % factor == 0)
                 {
                     factors.Add(factor);
-                    if (factor != number/factor)
+                    if (factor != number / factor)
                     {
-                        factors.Add(number/factor);
+                        factors.Add(number / factor);
                     }
                 }
             }
@@ -138,9 +141,14 @@ namespace ProjectEulerSharp.Utilities
 
             char[] tempPalindrome = palindrome.ToCharArray();
             Array.Reverse(tempPalindrome);
-            string reversePalindrome = new string(tempPalindrome);
+            var reversePalindrome = new string(tempPalindrome);
 
             return palindrome.Equals(reversePalindrome);
+        }
+
+        public static int GetSumOfDigits(BigInteger number)
+        {
+            return number.ToString().Sum(digit => int.Parse(digit.ToString()));
         }
 
         private static IEnumerable<int> SieveOfEratosthenes(int upperBound)
@@ -151,7 +159,7 @@ namespace ProjectEulerSharp.Utilities
 
             yield return 2;
 
-            for (int possiblePrime = 3; possiblePrime <= upperBound; possiblePrime += 2)
+            for (var possiblePrime = 3; possiblePrime <= upperBound; possiblePrime += 2)
             {
                 if (!eliminated[possiblePrime])
                 {
@@ -176,11 +184,6 @@ namespace ProjectEulerSharp.Utilities
             }
 
             return FibonacciFinder(upperBound - 1) + FibonacciFinder(upperBound - 2);
-        }
-
-        public static int GetSumOfDigits(BigInteger number)
-        {
-            return number.ToString().Sum(digit => Int32.Parse(digit.ToString()));
         }
     }
 }

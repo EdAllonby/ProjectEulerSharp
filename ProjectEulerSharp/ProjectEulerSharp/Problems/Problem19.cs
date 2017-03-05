@@ -11,7 +11,7 @@ namespace ProjectEulerSharp.Problems
 
             var totalSundaysOnFirstOfMonth = 0;
 
-            for (var date = startingDate; date.Date <= finalDate; date = date.AddMonths(1))
+            for (DateTime date = startingDate; date.Date <= finalDate; date = date.AddMonths(1))
             {
                 if (date.DayOfWeek == DayOfWeek.Sunday)
                 {

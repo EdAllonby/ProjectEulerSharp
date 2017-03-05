@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using ProjectEulerSharp.Utilities;
 
 namespace ProjectEulerSharp.Problems
@@ -7,9 +8,9 @@ namespace ProjectEulerSharp.Problems
     {
         public string Solve()
         {
-            var perms = WordUtilities.FindPermutations("0123456789").OrderBy(x => x).ToList();
+            List<string> perms = WordUtilities.FindPermutations("0123456789").OrderBy(x => x).ToList();
 
-            var millionthPerm = perms[999999];
+            string millionthPerm = perms[999999];
 
             return millionthPerm;
         }

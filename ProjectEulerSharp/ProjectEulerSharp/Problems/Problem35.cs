@@ -1,8 +1,4 @@
-﻿// The number, 197, is called a circular prime because all rotations of the digits: 197, 971, and 719, are themselves prime.
-// There are thirteen such primes below 100: 2, 3, 5, 7, 11, 13, 17, 31, 37, 71, 73, 79, and 97.
-// How many circular primes are there below one million?
-
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ProjectEulerSharp.Utilities;
 
 namespace ProjectEulerSharp.Problems
@@ -13,14 +9,14 @@ namespace ProjectEulerSharp.Problems
         {
             IEnumerable<int> primeNumbers = MathsUtilities.GetAllPrimeNumbers(1000000);
 
-            int circularNumberCount = 0;
+            var circularNumberCount = 0;
 
-            foreach (var primeNumber in primeNumbers)
+            foreach (int primeNumber in primeNumbers)
             {
                 // Need to rotate, not permute.
                 IEnumerable<string> permutations = WordUtilities.FindPermutations(primeNumber.ToString());
 
-                bool isPrimeNumberCircular = true;
+                var isPrimeNumberCircular = true;
 
                 foreach (string permutation in permutations)
                 {

@@ -1,14 +1,10 @@
-﻿// The prime factors of 13195 are 5, 7, 13 and 29.
-// What is the largest prime factor of the number 600851475143 ?
-
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
 using ProjectEulerSharp.Utilities;
 
 namespace ProjectEulerSharp.Problems
 {
-    class Problem3 : IProjectEulerSolution
+    internal class Problem3 : IProjectEulerSolution
     {
         public string Solve()
         {
@@ -19,7 +15,7 @@ namespace ProjectEulerSharp.Problems
             int answer = MathsUtilities.GetAllPrimeNumbers(numberSquareRoot)
                 .Where(IsPrimeFactor(Number))
                 .Max();
-            
+
             return answer.ToString();
         }
 

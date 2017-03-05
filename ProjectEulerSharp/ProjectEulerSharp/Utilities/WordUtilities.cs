@@ -15,13 +15,13 @@ namespace ProjectEulerSharp.Utilities
         {
             if (word.Length == 1)
             {
-                 yield return word;
+                yield return word;
             }
 
             if (word.Length == 2)
             {
                 char[] character = word.ToCharArray();
-                string s = new string(new[] { character[1], character[0] });
+                var s = new string(new[] { character[1], character[0] });
                 yield return word;
                 yield return s;
                 yield break;
@@ -34,7 +34,7 @@ namespace ProjectEulerSharp.Utilities
             {
                 yield return temp;
                 char[] chars = temp.ToCharArray();
-                for (int i = 0; i < temp.Length - 1; i++)
+                for (var i = 0; i < temp.Length - 1; i++)
                 {
                     char t = chars[i];
                     chars[i] = chars[i + 1];

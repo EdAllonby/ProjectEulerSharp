@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Numerics;
 using ProjectEulerSharp.Utilities;
 
 namespace ProjectEulerSharp.Problems

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using ProjectEulerSharp.Properties;
 using ProjectEulerSharp.Utilities;
 
@@ -12,11 +11,11 @@ namespace ProjectEulerSharp.Problems
             int result = Resources.Problem22Names
                 .Replace("\"", "")
                 .Split(',')
-                .OrderBy(name=>name)
+                .OrderBy(name => name)
                 .Select(letter => letter.Sum(WordUtilities.LetterToAlphabetIndex))
                 .Select((score, position) => score * (position + 1))
                 .Sum();
-        
+
             return result.ToString();
         }
     }
